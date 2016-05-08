@@ -1,17 +1,20 @@
 var express = require('express');
 var router = express.Router();
-var ZxxSpider = require("../../services/spider/zxx");
+var ZxxTask = require("../../services/spider/zxx/task");
 
 router.get('/zxx', function(req, res, next) {
-    res.setHeader("Content-Type", "text/json;charset=utf-8");
-    new ZxxSpider()
+    
+    new ZxxTask()
         .run()
         .on("success", function (_result) {
-            res.end(JSON.stringify(_result));
+            //res.setHeader("Content-Type", "text/json;charset=utf-8");
+            //res.end(JSON.stringify(_result));
+           res.render("blog", {blogs:_result});
         })
         .on("error", function () {
             next();
         });
+    
 });
 
 module.exports = router;

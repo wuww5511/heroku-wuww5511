@@ -1,6 +1,6 @@
 "use strict"
 
-var Spider = require('../../lib/spider/spider'),
+var Spider = require('../../../lib/spider/spider'),
     _cheerio = require("cheerio");
 
 class ZxxSpider extends Spider {
@@ -23,7 +23,9 @@ class ZxxSpider extends Spider {
             _result.push(_info);
         });
         
-        return _result;
+        return {
+            list: _result
+        };
     }
     
 }

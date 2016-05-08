@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <% blogs.forEach(function (_blog) { %>
+        <div><%- _blog.title%></div>
+        <div><%- _blog.url%></div>
+        <div><%- _blog.content%></div>
+    <%});%>
+    <script>
+        (function () {
+            var _imgs = document.images;
+            
+            
+            for(var _i = 0; _i < _imgs.length; _i++) {
+               
+                if(_imgs[_i].dataset.src) {
+                    _imgs[_i].src = _imgs[_i].dataset.src;
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
